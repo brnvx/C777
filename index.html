@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casino Online - 100X Bono</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: white;
+            max-width: 100vw;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            padding: 15px;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+        
+        /* Header Styles */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            position: relative;
+        }
+        
+        .logo {
+            height: 50px;
+        }
+        
+        .auth-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .auth-btn {
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 12px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .login-btn {
+            background: linear-gradient(90deg, #ff7b00, #ff9500);
+            color: white;
+        }
+        
+        .register-btn {
+            background: linear-gradient(90deg, #00b4db, #0083b0);
+            color: white;
+        }
+        
+        .jackpot-display {
+            font-size: 18px;
+            font-weight: bold;
+            color: #ffd700;
+            text-align: center;
+            display: none;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        /* Banner Slider */
+        .banner-container {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            border-radius: 10px;
+            margin: 15px 0;
+            height: 150px;
+        }
+        
+        .banner-slider {
+            display: flex;
+            transition: transform 0.5s ease;
+            width: 400%;
+            height: 100%;
+        }
+        
+        .banner-slide {
+            width: 25%;
+            height: 100%;
+            flex-shrink: 0;
+        }
+        
+        .banner-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Promo Section */
+        .promo-section {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+        
+        .promo-item {
+            width: 32%;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .promo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Main Offer */
+        .main-offer {
+            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            margin: 15px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .main-offer::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            animation: rotate 15s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .main-offer h1 {
+            font-size: 22px;
+            margin-bottom: 5px;
+            position: relative;
+        }
+        
+        .main-offer h2 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            position: relative;
+        }
+        
+        .main-offer p {
+            font-size: 14px;
+            margin-bottom: 15px;
+            position: relative;
+        }
+        
+        .claim-btn {
+            background: linear-gradient(90deg, #f9d423, #f83600);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+        }
+        
+        .claim-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+        }
+        
+        .license-info {
+            font-size: 10px;
+            opacity: 0.7;
+            margin-top: 10px;
+            position: relative;
+        }
+        
+        /* Invitation Section */
+        .invitation-section {
+            background: linear-gradient(135deg, #4b6cb7, #182848);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .invitation-section::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://iili.io/Fis7gkB.md.png') no-repeat;
+            background-size: cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .invitation-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .invitation-section h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #f9d423;
+        }
+        
+        .invitation-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 8px 0;
+            font-size: 14px;
+        }
+        
+        .withdrawal-notice {
+            font-size: 12px;
+            text-align: center;
+            margin-top: 10px;
+            color: #a5ff78;
+            font-weight: bold;
+        }
+        
+        /* Hot Games Section */
+        .section-title {
+            font-size: 18px;
+            margin: 20px 0 10px;
+            color: #f9d423;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title::before, .section-title::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #f9d423, transparent);
+            margin: 0 10px;
+        }
+        
+        .hot-games {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .game-card {
+            width: calc(25% - 8px);
+            aspect-ratio: 1/1;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .game-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Navigation Bar */
+        .nav-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #0f0f1a;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.5);
+            z-index: 100;
+        }
+        
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .nav-item img {
+            width: 24px;
+            height: 24px;
+            margin-bottom: 5px;
+        }
+        
+        .nav-item span {
+            font-size: 10px;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .modal-content {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            width: 90%;
+            max-width: 400px;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+            position: relative;
+            animation: slideUp 0.4s;
+            border: 1px solid #2a2a4a;
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #ff4757;
+        }
+        
+        .modal-title {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #f9d423;
+            font-size: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid #2a2a4a;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            font-size: 14px;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            background: linear-gradient(90deg, #00b09b, #96c93d);
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.3s;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .captcha-container {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+        }
+        
+        .captcha-code {
+            background: linear-gradient(135deg, #434343, #000000);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 3px;
+            margin-right: 10px;
+            user-select: none;
+        }
+        
+        .refresh-captcha {
+            background: none;
+            border: none;
+            color: #00b4db;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        /* Deposit Modal */
+        .deposit-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .deposit-option {
+            flex: 1 0 calc(50% - 10px);
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+        
+        .deposit-option:hover, .deposit-option.active {
+            border-color: #f9d423;
+            background: rgba(249, 212, 35, 0.1);
+        }
+        
+        .deposit-amount {
+            font-weight: bold;
+            color: #f9d423;
+        }
+        
+        .deposit-bonus {
+            font-size: 12px;
+            color: #a5ff78;
+        }
+        
+        .qr-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .qr-code {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        
+        .wallet-address {
+            background: rgba(255,255,255,0.1);
+            padding: 10px;
+            border-radius: 8px;
+            word-break: break-all;
+            font-size: 12px;
+            margin: 10px 0;
+            position: relative;
+        }
+        
+        .copy-btn {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+        
+        .file-upload {
+            margin: 15px 0;
+        }
+        
+        .file-upload-label {
+            display: block;
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            border: 1px dashed rgba(255,255,255,0.3);
+            transition: all 0.3s;
+        }
+        
+        .file-upload-label:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .file-upload-input {
+            display: none;
+        }
+        
+        .success-animation {
+            text-align: center;
+            margin: 20px 0;
+            display: none;
+        }
+        
+        .checkmark {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: block;
+            stroke-width: 5;
+            stroke: #4bb71b;
+            stroke-miterlimit: 10;
+            margin: 0 auto;
+            box-shadow: 0 0 0 rgba(75, 183, 27, 0.4);
+            animation: checkmark-fill 0.4s ease-in-out 0.4s forwards, checkmark-scale 0.3s ease-in-out 0.9s both;
+        }
+        
+        .checkmark-circle {
+            stroke-dasharray: 166;
+            stroke-dashoffset: 166;
+            stroke-width: 5;
+            stroke-miterlimit: 10;
+            stroke: #4bb71b;
+            fill: none;
+            animation: checkmark-stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+        }
+        
+        .checkmark-check {
+            transform-origin: 50% 50%;
+            stroke-dasharray: 48;
+            stroke-dashoffset: 48;
+            animation: checkmark-stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+        }
+        
+        @keyframes checkmark-stroke {
+            100% { stroke-dashoffset: 0; }
+        }
+        
+        @keyframes checkmark-scale {
+            0%, 100% { transform: none; }
+            50% { transform: scale3d(1.1, 1.1, 1); }
+        }
+        
+        @keyframes checkmark-fill {
+            100% { box-shadow: inset 0 0 0 40px #4bb71b; }
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 400px) {
+            .game-card {
+                width: calc(33.33% - 7px);
+            }
+            
+            .deposit-option {
+                flex: 1 0 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <img src="https://dudvdg1kabrjm.cloudfront.net/resource_collection/t7/images/public/logo-01.png" alt="Casino Logo" class="logo">
+            <div class="auth-buttons" id="authButtons">
+                <button class="auth-btn login-btn" id="loginBtn">Iniciar Sesión</button>
+                <button class="auth-btn register-btn" id="registerBtn">Registrarse</button>
+            </div>
+            <div class="jackpot-display" id="jackpotDisplay">JACKPOT $1,234,567</div>
+        </header>
+        
+        <div class="banner-container">
+            <div class="banner-slider" id="bannerSlider">
+                <div class="banner-slide">
+                    <img src="https://iili.io/Fis7gkB.md.png" alt="Banner 1">
+                </div>
+                <div class="banner-slide">
+                    <img src="https://iili.io/FisaXVe.md.png" alt="Banner 2">
+                </div>
+                <div class="banner-slide">
+                    <img src="https://iili.io/Fisaysn.md.png" alt="Banner 3">
+                </div>
+                <div class="banner-slide">
+                    <img src="https://iili.io/FiscXmN.md.png" alt="Banner 4">
+                </div>
+            </div>
+        </div>
+        
+        <div class="promo-section">
+            <div class="promo-item">
+                <img src="https://dudvdg1kabrjm.cloudfront.net/resource_collection/10win/kingkong/1752925123351osqe4.gif" alt="Promo 1">
+            </div>
+            <div class="promo-item">
+                <img src="https://dudvdg1kabrjm.cloudfront.net/resource_collection/10win/kingkong/1752925130733dh9ix.gif" alt="Promo 2">
+            </div>
+            <div class="promo-item">
+                <img src="https://dudvdg1kabrjm.cloudfront.net/resource_collection/10win/kingkong/1752925145865ycmu2.gif" alt="Promo 3">
+            </div>
+        </div>
+        
+        <div class="main-offer">
+            <h1>100X BONO DE HASTA</h1>
+            <h2>A PARTIR DE R$0.10</h2>
+            <p>¡GANA MUCHOS GIROS GRATIS!</p>
+            <p><strong>SLOTS OPTIMIZADOS Y PAGANDO MUCHO!</strong></p>
+            <button class="claim-btn" id="claimBtn">Rescatar Ahora</button>
+            <p class="license-info">LICENCIA OFICIAL DE SIGAP BRASIL • AFUN.BE.HBR • <strong>SIGAP AFM</strong></p>
+        </div>
+        
+        <div class="invitation-section">
+            <div class="invitation-content">
+                <h3>Invitación</h3>
+                <div class="invitation-item">
+                    <span>Persona R$50</span>
+                </div>
+                <div class="invitation-item">
+                    <span>Torneo diario hasta R$70,500</span>
+                </div>
+                <div class="invitation-item">
+                    <span>Gratis R$770</span>
+                </div>
+                <div class="withdrawal-notice">
+                    ****37 acaba de retirar 979.06 R$6****86 acaba
+                </div>
+            </div>
+        </div>
+        
+        <h3 class="section-title">Caliente</h3>
+        <div class="hot-games">
+            <div class="game-card" data-target="register">
+                <img src="https://dudvdg1kabrjm.cloudfront.net/game_icon/zs_pg_hpg_fortune-rabbit2_.png" alt="PG Soft">
+            </div>
+            <div class="game-card" data-target="register">
+                <img src="https://dudvdg1kabrjm.cloudfront.net/game_icon/zs_pg_hpg_fortune-tiger-fofo_.png" alt="AI">
+            </div>
+            <div class="game-card" data-target="register">
+                <img src="https://dudvdg1kabrjm.cloudfront.net/game_icon/zs_pg_hpg_fortune-dragon-fofo_.png" alt="Pragmatic">
+            </div>
+            <div class="game-card" data-target="register">
+                <img src="https://dudvdg1kabrjm.cloudfront.net/game_icon/zs_pg_hpg_fortune-tiger3_.png" alt="Revenge">
+            </div>
+        </div>
+        
+        <h3 class="section-title">Juegos Populares</h3>
+        <div class="hot-games">
+            <div class="game-card" data-target="register">
+                <img src="https://dudvdg1kabrjm.cloudfront.net/game_icon/fortune-tiger-new.png" alt="Fortune Tiger">
+            </div>
+            <div class="game-card" data-target="register">
+                <img src="https://dudvdg1kabrjm.cloudfront.net/game_icon/fortune-rabbit-new.png" alt="Fortune Rabbit">
+            </div>
+            <div class="game-card" data-target="register">
+                <img src="https://dudvdg1kabrjm.cloudfront.net/game_icon/zs_pg_ai888_alicedream_.png" alt="Alice Dream">
+            </div>
+            <div class="game-card" data-target="register">
+                <img src="https://dudvdg1kabrjm.cloudfront.net/game_icon/fortune-dragon-new.png" alt="Fortune Dragon">
+            </div>
+            <div class="game-card" data-target="register">
+                <img src="https://dudvdg1kabrjm.cloudfront.net/game_icon/fortune-snake.png" alt="Fortune Snake">
+            </div>
+            <div class="game-card" data-target="register">
+                <img src="https://dudvdg1kabrjm.cloudfront.net/game_icon/zs_pg_ai888_ai_.png" alt="AI">
+            </div>
+            <div class="game-card" data-target="register">
+                <img src="https://dudvdg1kabrjm.cloudfront.net/game_icon/zs_pg_ai888_fafacaishen_.png" alt="FaFa Cai Shen">
+            </div>
+            <div class="game-card" data-target="register">
+                <img src="https://dudvdg1kabrjm.cloudfront.net/game_icon/zs_pg_ai888_dragonfestive_.png" alt="Dragon Festive">
+            </div>
+            <div class="game-card" data-target="register">
+                <img src="https://dudvdg1kabrjm.cloudfront.net/game_icon/fortune-ox-new.png" alt="Fortune Ox">
+            </div>
+            <div class="game-card" data-target="register">
+                <img src="https://dudvdg1kabrjm.cloudfront.net/game_icon/75.png" alt="75">
+            </div>
+            <div class="game-card" data-target="register">
+                <img src="https://dudvdg1kabrjm.cloudfront.net/game_icon/zs_pg_ai888_spacecat_.png" alt="Space Cat">
+            </div>
+            <div class="game-card" data-target="register">
+                <img src="https://dudvdg1kabrjm.cloudfront.net/game_icon/zs_pg_pp_LuckyDog_.png" alt="Lucky Dog">
+            </div>
+        </div>
+    </div>
+    
+    <div class="nav-bar">
+        <div class="nav-item" id="navHome">
+            <img src="https://dudvdg1kabrjm.cloudfront.net/resource_collection/t7/images/layout/tableBar/tableBar_1s.png" alt="Home">
+            <span>Inicio</span>
+        </div>
+        <div class="nav-item" id="navRanking">
+            <img src="https://dudvdg1kabrjm.cloudfront.net/resource_collection/t7/images/layout/tableBar/tableBar_2-2.png" alt="Ranking">
+            <span>Ranking</span>
+        </div>
+        <div class="nav-item" id="navDeposit">
+            <img src="https://dudvdg1kabrjm.cloudfront.net/resource_collection/t7/images/layout/tableBar/tableBar_3.png" alt="Deposit">
+            <span>Depositar</span>
+        </div>
+        <div class="nav-item" id="navEvent">
+            <img src="https://dudvdg1kabrjm.cloudfront.net/resource_collection/t7/images/layout/tableBar/tableBar_4.png" alt="Event">
+            <span>Evento</span>
+        </div>
+        <div class="nav-item" id="navInfo">
+            <img src="https://dudvdg1kabrjm.cloudfront.net/resource_collection/t7/images/layout/tableBar/tableBar_5.png" alt="Info">
+            <span>Info</span>
+        </div>
+    </div>
+    
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeLogin">&times;</span>
+            <h3 class="modal-title">Iniciar Sesión</h3>
+            <div class="form-group">
+                <label for="loginPhone">Número de Teléfono (+57)</label>
+                <input type="tel" id="loginPhone" class="form-control" placeholder="Ej: 3123456789">
+            </div>
+            <div class="form-group">
+                <label for="loginPassword">Contraseña</label>
+                <input type="password" id="loginPassword" class="form-control" placeholder="Ingresa tu contraseña">
+            </div>
+            <div class="captcha-container">
+                <div class="captcha-code" id="loginCaptcha">A7B9C</div>
+                <button class="refresh-captcha" id="refreshLoginCaptcha">Actualizar</button>
+            </div>
+            <div class="form-group">
+                <label for="loginCaptchaInput">Ingresa el código CAPTCHA</label>
+                <input type="text" id="loginCaptchaInput" class="form-control" placeholder="Ingresa el código">
+            </div>
+            <button class="submit-btn" id="loginSubmit">Iniciar Sesión</button>
+            <p style="text-align: center; margin-top: 15px; font-size: 14px;">
+                ¿No tienes una cuenta? <a href="#" style="color: #00b4db;" id="switchToRegister">Regístrate aquí</a>
+            </p>
+        </div>
+    </div>
+    
+    <!-- Register Modal -->
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeRegister">&times;</span>
+            <h3 class="modal-title">Registrarse</h3>
+            <div class="form-group">
+                <label for="regUsername">Nombre de Usuario</label>
+                <input type="text" id="regUsername" class="form-control" placeholder="Crea tu nombre de usuario">
+            </div>
+            <div class="form-group">
+                <label for="regPassword">Contraseña</label>
+                <input type="password" id="regPassword" class="form-control" placeholder="Crea una contraseña segura">
+            </div>
+            <div class="form-group">
+                <label for="regPhone">Número de Teléfono (+57)</label>
+                <input type="tel" id="regPhone" class="form-control" placeholder="Ej: 3123456789">
+            </div>
+            <div class="form-group">
+                <label for="regName">Nombre Real</label>
+                <input type="text" id="regName" class="form-control" placeholder="Tu nombre completo">
+            </div>
+            <div class="form-group">
+                <label for="regWallet">Dirección TRON20</label>
+                <input type="text" id="regWallet" class="form-control" placeholder="Tu dirección de billetera TRON20">
+            </div>
+            <div class="captcha-container">
+                <div class="captcha-code" id="regCaptcha">X3Y5Z</div>
+                <button class="refresh-captcha" id="refreshRegCaptcha">Actualizar</button>
+            </div>
+            <div class="form-group">
+                <label for="regCaptchaInput">Ingresa el código CAPTCHA</label>
+                <input type="text" id="regCaptchaInput" class="form-control" placeholder="Ingresa el código">
+            </div>
+            <button class="submit-btn" id="registerSubmit">Registrarse</button>
+            <p style="text-align: center; margin-top: 15px; font-size: 14px;">
+                ¿Ya tienes una cuenta? <a href="#" style="color: #00b4db;" id="switchToLogin">Inicia sesión aquí</a>
+            </p>
+        </div>
+    </div>
+    
+    <!-- Deposit Modal -->
+    <div class="modal" id="depositModal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeDeposit">&times;</span>
+            <h3 class="modal-title">Depositar USDT (TRON20)</h3>
+            <div class="form-group">
+                <label for="depositAmount">Monto a Depositar (Mínimo 100 USDT)</label>
+                <input type="number" id="depositAmount" class="form-control" placeholder="Ingresa el monto en USDT" min="100">
+            </div>
+            
+            <h4 style="margin: 15px 0 10px; color: #f9d423; font-size: 16px;">Ofertas de Primer Depósito</h4>
+            <div class="deposit-options">
+                <div class="deposit-option" data-amount="100">
+                    <div class="deposit-amount">100 USDT</div>
+                    <div class="deposit-bonus">50% Bono (TO 10x)</div>
+                </div>
+                <div class="deposit-option" data-amount="200">
+                    <div class="deposit-amount">200 USDT</div>
+                    <div class="deposit-bonus">50% Bono (TO 10x)</div>
+                </div>
+                <div class="deposit-option" data-amount="500">
+                    <div class="deposit-amount">500 USDT</div>
+                    <div class="deposit-bonus">50% Bono (TO 10x)</div>
+                </div>
+                <div class="deposit-option" data-amount="1000">
+                    <div class="deposit-amount">1000 USDT</div>
+                    <div class="deposit-bonus">50% Bono (TO 10x)</div>
+                </div>
+                <div class="deposit-option" data-amount="5000">
+                    <div class="deposit-amount">5000 USDT</div>
+                    <div class="deposit-bonus">50% Bono (TO 10x)</div>
+                </div>
+                <div class="deposit-option" data-amount="10000">
+                    <div class="deposit-amount">10000 USDT</div>
+                    <div class="deposit-bonus">50% Bono (TO 10x)</div>
+                </div>
+            </div>
+            
+            <div class="qr-container" id="qrContainer" style="display: none;">
+                <h4 style="margin: 15px 0 10px; color: #f9d423; font-size: 16px;">Envía USDT a esta dirección</h4>
+                <div class="qr-code">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?data=TCYA9YzMGgiGKvgJfxs6ZhnDW5dAw8uvWd%22&size=220x220&margin=0" alt="QR Code" style="width: 100%; height: 100%;">
+                </div>
+                <div class="wallet-address">
+                    TCYA9YzMGgiGKvgJfxs6ZhnDW5dAw8uvWd
+                    <button class="copy-btn" id="copyWallet">Copiar</button>
+                </div>
+                
+                <div class="file-upload">
+                    <label class="file-upload-label" for="proofUpload">
+                        Sube una captura de pantalla de tu transferencia
+                        <input type="file" id="proofUpload" class="file-upload-input" accept="image/*">
+                    </label>
+                </div>
+                
+                <div class="success-animation" id="depositSuccess">
+                    <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                        <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+                        <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                    </svg>
+                    <p style="margin-top: 15px; color: #4bb71b; font-weight: bold;">¡Depósito enviado con éxito!</p>
+                </div>
+                
+                <button class="submit-btn" id="submitDeposit" style="display: none;">Confirmar Depósito</button>
+                <p style="text-align: center; margin-top: 15px; font-size: 12px;">
+                    ¿Problemas con el depósito? <a href="https://www.zendesk.com/blog/6-tips-best-online-customer-support/" style="color: #00b4db;" target="_blank">Contactar al Soporte</a>
+                </p>
+            </div>
+            
+            <button class="submit-btn" id="confirmAmount">Continuar</button>
+        </div>
+    </div>
+    
+    <script>
+        // Banner Slider
+        let currentSlide = 0;
+        const bannerSlider = document.getElementById('bannerSlider');
+        const totalSlides = 4;
+        
+        function slideBanner() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            bannerSlider.style.transform = `translateX(-${currentSlide * 25}%)`;
+        }
+        
+        setInterval(slideBanner, 3000);
+        
+        // Modal Controls
+        const loginBtn = document.getElementById('loginBtn');
+        const registerBtn = document.getElementById('registerBtn');
+        const closeLogin = document.getElementById('closeLogin');
+        const closeRegister = document.getElementById('closeRegister');
+        const closeDeposit = document.getElementById('closeDeposit');
+        const loginModal = document.getElementById('loginModal');
+        const registerModal = document.getElementById('registerModal');
+        const depositModal = document.getElementById('depositModal');
+        const switchToLogin = document.getElementById('switchToLogin');
+        const switchToRegister = document.getElementById('switchToRegister');
+        const authButtons = document.getElementById('authButtons');
+        const jackpotDisplay = document.getElementById('jackpotDisplay');
+        const claimBtn = document.getElementById('claimBtn');
+        const gameCards = document.querySelectorAll('.game-card');
+        const navDeposit = document.getElementById('navDeposit');
+        const confirmAmount = document.getElementById('confirmAmount');
+        const qrContainer = document.getElementById('qrContainer');
+        const submitDeposit = document.getElementById('submitDeposit');
+        const proofUpload = document.getElementById('proofUpload');
+        const depositSuccess = document.getElementById('depositSuccess');
+        const copyWallet = document.getElementById('copyWallet');
+        const depositOptions = document.querySelectorAll('.deposit-option');
+        const depositAmount = document.getElementById('depositAmount');
+        
+        // Simulated user data
+        let isLoggedIn = false;
+        let userData = null;
+        
+        // Open modals
+        loginBtn.addEventListener('click', () => {
+            loginModal.style.display = 'flex';
+            generateCaptcha('loginCaptcha');
+        });
+        
+        registerBtn.addEventListener('click', () => {
+            registerModal.style.display = 'flex';
+            generateCaptcha('regCaptcha');
+        });
+        
+        claimBtn.addEventListener('click', () => {
+            if (isLoggedIn) {
+                depositModal.style.display = 'flex';
+            } else {
+                registerModal.style.display = 'flex';
+                generateCaptcha('regCaptcha');
+            }
+        });
+        
+        // Close modals
+        closeLogin.addEventListener('click', () => {
+            loginModal.style.display = 'none';
+        });
+        
+        closeRegister.addEventListener('click', () => {
+            registerModal.style.display = 'none';
+        });
+        
+        closeDeposit.addEventListener('click', () => {
+            depositModal.style.display = 'none';
+        });
+        
+        // Switch between login and register
+        switchToLogin.addEventListener('click', (e) => {
+            e.preventDefault();
+            registerModal.style.display = 'none';
+            loginModal.style.display = 'flex';
+            generateCaptcha('loginCaptcha');
+        });
+        
+        switchToRegister.addEventListener('click', (e) => {
+            e.preventDefault();
+            loginModal.style.display = 'none';
+            registerModal.style.display = 'flex';
+            generateCaptcha('regCaptcha');
+        });
+        
+        // Game cards click
+        gameCards.forEach(card => {
+            card.addEventListener('click', () => {
+                if (isLoggedIn) {
+                    depositModal.style.display = 'flex';
+                } else {
+                    registerModal.style.display = 'flex';
+                    generateCaptcha('regCaptcha');
+                }
+            });
+        });
+        
+        // Nav deposit click
+        navDeposit.addEventListener('click', () => {
+            if (isLoggedIn) {
+                depositModal.style.display = 'flex';
+            } else {
+                registerModal.style.display = 'flex';
+                generateCaptcha('regCaptcha');
+            }
+        });
+        
+        // Deposit amount selection
+        depositOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                depositOptions.forEach(opt => opt.classList.remove('active'));
+                option.classList.add('active');
+                depositAmount.value = option.getAttribute('data-amount');
+            });
+        });
+        
+        // Confirm deposit amount
+        confirmAmount.addEventListener('click', () => {
+            if (depositAmount.value >= 100) {
+                confirmAmount.style.display = 'none';
+                qrContainer.style.display = 'block';
+                submitDeposit.style.display = 'block';
+            } else {
+                alert('El depósito mínimo es de 100 USDT');
+            }
+        });
+        
+        // Copy wallet address
+        copyWallet.addEventListener('click', () => {
+            navigator.clipboard.writeText('TCYA9YzMGgiGKvgJfxs6ZhnDW5dAw8uvWd');
+            alert('Dirección copiada al portapapeles');
+        });
+        
+        // Upload proof
+        proofUpload.addEventListener('change', () => {
+            if (proofUpload.files.length > 0) {
+                submitDeposit.style.display = 'none';
+                setTimeout(() => {
+                    depositSuccess.style.display = 'block';
+                }, 1000);
+                
+                setTimeout(() => {
+                    depositModal.style.display = 'none';
+                    depositSuccess.style.display = 'none';
+                    qrContainer.style.display = 'none';
+                    confirmAmount.style.display = 'block';
+                    proofUpload.value = '';
+                }, 3000);
+            }
+        });
+        
+        // CAPTCHA generation
+        function generateCaptcha(id) {
+            const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            let captcha = '';
+            for (let i = 0; i < 5; i++) {
+                captcha += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            document.getElementById(id).textContent = captcha;
+        }
+        
+        // Refresh CAPTCHA
+        document.getElementById('refreshLoginCaptcha').addEventListener('click', () => {
+            generateCaptcha('loginCaptcha');
+        });
+        
+        document.getElementById('refreshRegCaptcha').addEventListener('click', () => {
+            generateCaptcha('regCaptcha');
+        });
+        
+        // Form submissions
+        document.getElementById('loginSubmit').addEventListener('click', () => {
+            const phone = document.getElementById('loginPhone').value;
+            const password = document.getElementById('loginPassword').value;
+            const captchaInput = document.getElementById('loginCaptchaInput').value;
+            const captchaCode = document.getElementById('loginCaptcha').textContent;
+            
+            if (!phone || !password) {
+                alert('Por favor completa todos los campos');
+                return;
+            }
+            
+            if (captchaInput !== captchaCode) {
+                alert('El código CAPTCHA es incorrecto');
+                generateCaptcha('loginCaptcha');
+                return;
+            }
+            
+            // Simulate successful login
+            isLoggedIn = true;
+            userData = { phone, password };
+            authButtons.style.display = 'none';
+            jackpotDisplay.style.display = 'block';
+            loginModal.style.display = 'none';
+            
+            // Show success animation
+            const loginSuccess = document.createElement('div');
+            loginSuccess.innerHTML = `
+                <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.8); display: flex; align-items: center; justify-content: center; z-index: 2000;">
+                    <div style="background: linear-gradient(135deg, #1a1a2e, #16213e); padding: 30px; border-radius: 15px; text-align: center; max-width: 300px;">
+                        <svg width="80" height="80" viewBox="0 0 52 52" style="margin: 0 auto;">
+                            <circle cx="26" cy="26" r="25" fill="#4bb71b" style="animation: scaleIn 0.5s forwards; opacity: 0;"/>
+                            <path d="M14.1 27.2l7.1 7.2 16.7-16.8" fill="none" stroke="#fff" stroke-width="5" 
+                                  style="stroke-dasharray: 48; stroke-dashoffset: 48; animation: drawCheck 0.5s 0.5s forwards;"/>
+                        </svg>
+                        <h3 style="margin-top: 20px; color: #f9d423;">¡Bienvenido!</h3>
+                        <p style="margin-top: 10px;">Has iniciado sesión correctamente</p>
+                    </div>
+                </div>
+                <style>
+                    @keyframes scaleIn {
+                        from { transform: scale(0); opacity: 0; }
+                        to { transform: scale(1); opacity: 1; }
+                    }
+                    @keyframes drawCheck {
+                        to { stroke-dashoffset: 0; }
+                    }
+                </style>
+            `;
+            document.body.appendChild(loginSuccess);
+            
+            setTimeout(() => {
+                loginSuccess.remove();
+            }, 2000);
+        });
+        
+        document.getElementById('registerSubmit').addEventListener('click', () => {
+            const username = document.getElementById('regUsername').value;
+            const password = document.getElementById('regPassword').value;
+            const phone = document.getElementById('regPhone').value;
+            const name = document.getElementById('regName').value;
+            const wallet = document.getElementById('regWallet').value;
+            const captchaInput = document.getElementById('regCaptchaInput').value;
+            const captchaCode = document.getElementById('regCaptcha').textContent;
+            
+            if (!username || !password || !phone || !name || !wallet) {
+                alert('Por favor completa todos los campos');
+                return;
+            }
+            
+            if (captchaInput !== captchaCode) {
+                alert('El código CAPTCHA es incorrecto');
+                generateCaptcha('regCaptcha');
+                return;
+            }
+            
+            // Simulate successful registration
+            isLoggedIn = true;
+            userData = { username, password, phone, name, wallet };
+            authButtons.style.display = 'none';
+            jackpotDisplay.style.display = 'block';
+            registerModal.style.display = 'none';
+            
+            // Show success animation
+            const registerSuccess = document.createElement('div');
+            registerSuccess.innerHTML = `
+                <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.8); display: flex; align-items: center; justify-content: center; z-index: 2000;">
+                    <div style="background: linear-gradient(135deg, #1a1a2e, #16213e); padding: 30px; border-radius: 15px; text-align: center; max-width: 300px;">
+                        <svg width="80" height="80" viewBox="0 0 52 52" style="margin: 0 auto;">
+                            <circle cx="26" cy="26" r="25" fill="#4bb71b" style="animation: scaleIn 0.5s forwards; opacity: 0;"/>
+                            <path d="M14.1 27.2l7.1 7.2 16.7-16.8" fill="none" stroke="#fff" stroke-width="5" 
+                                  style="stroke-dasharray: 48; stroke-dashoffset: 48; animation: drawCheck 0.5s 0.5s forwards;"/>
+                        </svg>
+                        <h3 style="margin-top: 20px; color: #f9d423;">¡Registro exitoso!</h3>
+                        <p style="margin-top: 10px;">Ahora puedes disfrutar de todos nuestros juegos</p>
+                    </div>
+                </div>
+                <style>
+                    @keyframes scaleIn {
+                        from { transform: scale(0); opacity: 0; }
+                        to { transform: scale(1); opacity: 1; }
+                    }
+                    @keyframes drawCheck {
+                        to { stroke-dashoffset: 0; }
+                    }
+                </style>
+            `;
+            document.body.appendChild(registerSuccess);
+            
+            setTimeout(() => {
+                registerSuccess.remove();
+            }, 2000);
+        });
+        
+        // Initialize
+        generateCaptcha('loginCaptcha');
+        generateCaptcha('regCaptcha');
+    </script>
+</body>
+</html>
